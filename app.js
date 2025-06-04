@@ -43,9 +43,8 @@ function load_applications() {
         //create the link for the job application and calculate the number of days since it was last updated
         var card = document.createElement('a');
         let now = new Date();
-        console.log(parseInt(enter_days.value));
         if (mydata[i].Company == "Example1") { //exclude the example
-            mydata.splice(i, i);
+            //Do Nothing
         }
         else if (mydata[i].Denied == "Yes") { //categorize as denial and format
             card.innerHTML = '<div class="application_card" style="background-color:#ff00008a;"><h1>' + mydata[i].JobTitle + '</h1>\
