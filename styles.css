@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "K2D";
+    src: url(/K2D/K2D-Regular.ttf);
+}
+
+html {
+    background-color: #05002E;
+    color: white;
+    font-family: "K2D";
+}
+input {
+    background-color: #05002E;
+    border: white 1px solid;
+    border-radius: 9px;
+    margin-left: 1em;
+    color: white;
+    text-align: center;
+    font-size: 1.25rem;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 1.75rem;
+    text-align: center;
+}
+.subheader {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.applications {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem;
+    justify-content: center;
+}
+.section {
+    width: 275px;
+    text-align: center;
+    padding: 0 1em;
+    border-left: white 2px solid;
+    border-right: white 2px solid;
+}
+.application_card {
+    border: white 2px solid;
+    margin: 1em 0;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.application_card h1 {
+    font-size: 1.4rem;
+}
+.application_card h2 {
+    font-size: 1.25rem;
+}
+.application_card h3 {
+    font-size: 1rem;
+}

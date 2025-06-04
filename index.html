@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="data.json"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Job Application Information</h1>
+    </div>
+    <div class="subheader">
+        <h3>Days Before Followup:</h3>
+        <input type="number" step="1" value="30" id="enter_days">
+    </div>
+    <div class="applications">
+        <div id="followup" class="section" style="border-right: white 2px solid;">
+            <div class="section_header">
+                <h2>Needs Followup</h2>
+            </div>
+        </div>
+        <div id="recent" class="section" style="border-right: white 2px solid;">
+            <div class="section_header">
+                <h2>No Action</h2>
+            </div>
+        </div>
+        <div id="offer" class="section" style="border-right: white 2px solid;">
+            <div class="section_header">
+                <h2>Offers</h2>
+            </div>
+        </div>
+        <div id="deny" class="section">
+            <div class="section_header">
+                <h2>Denials</h2>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>

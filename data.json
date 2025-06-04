@@ -1,0 +1,2 @@
+data = '[\
+    {"Company" : "Example1", "JobTitle" : "Faker 101 Teacher", "Location": "Cinncinati, OH", "Denied":"No", "Interviewed": "Yes", "Offered": "No", "DateUpdated": "05/30/2025", "PreviousFollowup": "No", "DescriptionFile": "Example"}]';
