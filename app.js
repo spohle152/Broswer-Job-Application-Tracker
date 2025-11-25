@@ -50,7 +50,7 @@ function load_applications() {
             card.innerHTML = '<div class="application_card" style="background-color:#ff00008a;"><h1>' + mydata[i].JobTitle + '</h1>\
                 <h2>' + mydata[i].Company + '-' + mydata[i].Location + '</h2>\
                 <h3>Date Updated: ' + d.toLocaleString('en-us', options) + '</h3></div>';
-            card.href = 'Job Application Markdowns/' + mydata[i].ID + '.md';
+            card.href = 'Job Application Markdowns/' + mydata[i].DescriptionFile + '.md';
             card.target = '_blank';
             deny.appendChild(card);
         }
@@ -58,12 +58,12 @@ function load_applications() {
             card.innerHTML = '<div class="application_card" style="background-color:#03620093;"><h1>' + mydata[i].JobTitle + '</h1>\
                 <h2>' + mydata[i].Company + '-' + mydata[i].Location + '</h2>\
                 <h3>Date Updated: ' + d.toLocaleString('en-us', options) + '</h3></div>';
-            card.href = 'Job Application Markdowns/' + mydata[i].ID + '.md';
+            card.href = 'Job Application Markdowns/' + mydata[i].DescriptionFile + '.md';
             card.target = '_blank';
             offer.appendChild(card);
         }
         else if (((now - d) / (1000 * 3600 * 24)) >= parseInt(enter_days.value)) { //categorize as followup and format
-            card.href = 'Job Application Markdowns/' + mydata[i].ID + '.md';
+            card.href = 'Job Application Markdowns/' + mydata[i].DescriptionFile + '.md';
             card.target = '_blank';
             if (mydata[i].Interviewed == "Yes") {
                 card.innerHTML = '<div class="application_card" style="background-color:#8158008a;"><h1>' + mydata[i].JobTitle + '</h1>\
@@ -90,7 +90,7 @@ function load_applications() {
                     <h2>' + mydata[i].Company + '-' + mydata[i].Location + '</h2>\
                     <h3>Date Updated: ' + d.toLocaleString('en-us', options) + '</h3></div>';
             }
-            card.href = 'Job Application Markdowns/' + mydata[i].ID + '.md';
+            card.href = 'Job Application Markdowns/' + mydata[i].DescriptionFile + '.md';
             card.target = '_blank';
             card.style.color = 'black';
             recent.appendChild(card);
