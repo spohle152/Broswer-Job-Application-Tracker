@@ -1,42 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script type="text/javascript" src="data.json"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Job Application Information</h1>
-    </div>
-    <div class="subheader">
-        <h3>Days Before Followup:</h3>
-        <input type="number" step="1" value="30" id="enter_days">
-    </div>
-    <div class="applications">
-        <div id="followup" class="section" style="border-right: white 2px solid;">
-            <div class="section_header">
-                <h2>Needs Followup</h2>
-            </div>
+    <header class="header">
+        <div>
+            <h1>Job Application Information</h1>
+            <p>Track followups, interviews, offers, denials, and job notes.</p>
         </div>
-        <div id="recent" class="section" style="border-right: white 2px solid;">
-            <div class="section_header">
-                <h2>No Action</h2>
+        <nav class="tabs" aria-label="Application pages">
+            <button class="tab active" type="button" data-page="dashboard">Dashboard</button>
+            <button class="tab" type="button" data-page="manage">Manage Applications</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard_page" class="page active">
+            <div class="subheader">
+                <label for="enter_days">Days Before Followup</label>
+                <input type="number" step="1" value="30" id="enter_days">
             </div>
-        </div>
-        <div id="offer" class="section" style="border-right: white 2px solid;">
-            <div class="section_header">
-                <h2>Offers</h2>
+            <div class="applications" id="applications">
+                <div id="followup" class="section">
+                    <div class="section_header">
+                        <h2>Needs Followup</h2>
+                    </div>
+                </div>
+                <div id="recent" class="section">
+                    <div class="section_header">
+                        <h2>No Action</h2>
+                    </div>
+                </div>
+                <div id="offer" class="section">
+                    <div class="section_header">
+                        <h2>Offers</h2>
+                    </div>
+                </div>
+                <div id="deny" class="section">
+                    <div class="section_header">
+                        <h2>Denials</h2>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div id="deny" class="section">
-            <div class="section_header">
-                <h2>Denials</h2>
+        </section>
+
+        <section id="manage_page" class="page">
+            <div class="manage_shell">
+                <aside class="application_list_panel">
+                    <div class="panel_header">
+                        <h2>Applications</h2>
+                        <button class="primary_button" id="new_application" type="button">Add</button>
+                    </div>
+                    <div id="application_list" class="application_list"></div>
+                </aside>
+
+                <form id="application_form" class="editor_panel">
+                    <input type="hidden" id="app_index" value="-1">
+                    <div class="panel_header">
+                        <h2 id="form_title">New Application</h2>
+                        <div class="form_actions">
+                            <button class="secondary_button" id="delete_application" type="button">Delete</button>
+                            <button class="primary_button" type="submit">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="form_grid">
+                        <label>
+                            Company
+                            <input id="company" name="Company" type="text" required>
+                        </label>
+                        <label>
+                            Job Title
+                            <input id="job_title" name="JobTitle" type="text" required>
+                        </label>
+                        <label>
+                            Location
+                            <input id="location" name="Location" type="text">
+                        </label>
+                        <label>
+                            Date Updated
+                            <input id="date_updated" name="DateUpdated" type="date" required>
+                        </label>
+                        <label>
+                            Previous Followup
+                            <select id="previous_followup" name="PreviousFollowup">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </label>
+                        <label>
+                            Description File
+                            <input id="description_file" name="DescriptionFile" type="text" placeholder="Company-Role">
+                        </label>
+                    </div>
+
+                    <fieldset class="status_group">
+                        <legend>Status</legend>
+                        <label><input id="status_active" name="Status" type="radio" value="Active" checked> Active</label>
+                        <label><input id="status_interviewed" name="Status" type="radio" value="Interviewed"> Interviewed</label>
+                        <label><input id="status_offered" name="Status" type="radio" value="Offered"> Offered</label>
+                        <label><input id="status_denied" name="Status" type="radio" value="Denied"> Denied</label>
+                    </fieldset>
+
+                    <label class="description_editor">
+                        Job Description / Notes
+                        <textarea id="description_content" rows="12"></textarea>
+                    </label>
+
+                    <div class="editor_footer">
+                        <button class="secondary_button" id="open_description" type="button">Open Markdown</button>
+                        <p id="status_message" role="status"></p>
+                    </div>
+                </form>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <script src="data.json"></script>
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
 </html>
